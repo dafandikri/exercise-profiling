@@ -4,9 +4,13 @@ import com.advpro.profiling.tutorial.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * @author muhammad.khadafi
  */
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
+    // Method to find student with highest GPA directly from the database
+    Optional<Student> findTopByOrderByGpaDesc();
 }
